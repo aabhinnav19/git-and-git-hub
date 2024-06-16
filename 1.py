@@ -10,5 +10,6 @@ def func1():
 def func2():
   return 'two'
 
+print("good morning")
 print("good evening")
 print("git and github")
