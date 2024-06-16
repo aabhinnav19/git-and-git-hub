@@ -1,2 +1,2 @@
-print('hello world')
-print('good afternoon')
+print('hello world!')
+print('good afternoon!')
