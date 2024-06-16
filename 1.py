@@ -3,3 +3,6 @@ print('good afternoon!')
 
 def uhome():
   return 'haii'
+
+def func2():
+  return 'two'
