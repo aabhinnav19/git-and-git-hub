@@ -7,3 +7,6 @@ def demo():
 
 def func1():
     return 'this is function1'
+
+def func2():
+    return 'this is function2'
