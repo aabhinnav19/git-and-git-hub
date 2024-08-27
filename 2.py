@@ -10,3 +10,6 @@ def func1():
 
 def func2():
     return 'this is function2'
+
+def func3():
+    return 'this is function3'
