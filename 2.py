@@ -4,3 +4,6 @@ s={'a','b','c'}
 
 def demo():
     return 'demo'
+
+def func1():
+    return 'this is function1'
