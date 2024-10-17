@@ -1,0 +1,20 @@
+---
+- name: Get EC2 Instance Information
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Describe EC2 Instances
+      ec2_instance_info:
+        region: eu-west-1
+        filters:
+          instance-state-name: running
+      register: ec2_instances
+
+    - name: Extract Public IP Addresses and Names
+      set_fact:
+        ec2_info: "{{ ec2_instances.instances | map(attribute='tags.Name') | zip(ec2_instances.instances | map(attribute='public_ip_address')) | list }}"
+
+    - name: Display EC2 Instance Details
+      debug:
+        var: ec2_info
