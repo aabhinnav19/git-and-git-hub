@@ -4,7 +4,12 @@ pipeline {
     stages {
         stage('1.git') {
             steps {
-                
+               git 'https://github.com/aabhinnavkvd/git-and-git-hub'
+            }
+        }
+        stage('2.ansible command') {
+            steps {
+                sh 'ansible-playbook info.yaml'
             }
         }
     }
