@@ -7,11 +7,11 @@ pipeline {
                git 'https://github.com/aabhinnavkvd/git-and-git-hub'
             }
         }
-        // stage('2.copy command'){
-        //     steps {
-        //         sh 'sudo cp '
-        //     }
-        // }
+        stage('2.copy command'){
+            steps {
+                sh 'sudo cp /home/ubuntu/jenkin_folder/workspace/declarative_pipeline_2/info.yaml /etc/ansible'
+            }
+        }
         // stage('3.installing boto3 and botocore'){
         //     steps {
         //         sh 'sudo apt install python3-boto3 python3-botocore -y'
