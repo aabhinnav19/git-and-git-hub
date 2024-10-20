@@ -19,7 +19,7 @@ pipeline {
         }
         stage('4. run ansible command') {
             steps {
-                sh '''cd /etc/ansible/ ansible-playbook info.yaml'''
+                sh '''ansible-playbook info.yaml'''
             }
         }
     }
