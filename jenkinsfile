@@ -19,7 +19,8 @@ pipeline {
         }
         stage('4. run ansible command') {
             steps {
-                sh '''ansible-playbook info.yaml'''
+                sh '''sudo /etc/ansible
+ansible-playbook info.yaml'''
             }
         }
     }
