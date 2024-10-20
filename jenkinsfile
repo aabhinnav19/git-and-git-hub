@@ -7,10 +7,21 @@ pipeline {
                git 'https://github.com/aabhinnavkvd/git-and-git-hub'
             }
         }
-        stage('2.ansible command') {
-            steps {
-                sh 'ansible-playbook info.yaml'
-            }
-        }
+        // stage('2.copy command'){
+        //     steps {
+        //         sh 'sudo cp '
+        //     }
+        // }
+        // stage('3.installing boto3 and botocore'){
+        //     steps {
+        //         sh 'sudo apt install python3-boto3 python3-botocore -y'
+        //     }
+        // }
+        // stage('4. run ansible command') {
+        //     steps {
+        //         sh '''ansible-playbook info.yaml
+        //             cd /etc/ansible/ '''
+        //     }
+        // }
     }
 }
