@@ -1,5 +1,12 @@
+def color_map =[
+'FAILURE':'danger',
+'SUCCESS':'good',
+'UNSTABLE':'warning',
+'ABORTED':'#5303ff'  
+]
+
 pipeline {
-    agent {label 'node_2'}
+    agent {label 'a_node'}
 
     stages {
         stage('1.git') {
@@ -9,19 +16,26 @@ pipeline {
         }
         stage('2.copy command'){
             steps {
-                sh 'sudo cp /home/ubuntu/jenkin_folder/workspace/declarative_pipeline_2/info.yaml /etc/ansible'
+                sh 'sudo cp /home/ubuntu/jenkins_folder/workspace/declarative_pipeline_2/info.yaml /etc/ansible'
             }
         }
-        stage('3.installing boto3 and botocore'){
-            steps {
-                sh 'sudo apt install python3-boto3 python3-botocore -y'
-            }
-        }
-        stage('4. run ansible command') {
+        // stage('3.installing boto3 and botocore'){
+        //     steps {
+        //         sh 'sudo apt install python3-boto3 python3-botocore -y'
+        //     }
+        // }
+        stage('3. run ansible command') {
             steps {
                 sh '''cd /etc/ansible
 ansible-playbook info.yaml'''
             }
+        }
+    }
+    post 
+    {
+        always
+        {
+           slackSend channel: 'aabhinnav_jenkins', color: color_map[currentBuild.currentResult], message: "pipeline status : ${currentBuild.currentResult} \n job name: ${env.JOB_NAME} \n build number: ${env.BUILD_NUMBER} \n ${env.BUILD_URL}"
         }
     }
 }
