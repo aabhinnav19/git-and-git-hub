@@ -24,12 +24,12 @@ pipeline {
         //         sh 'sudo apt install python3-boto3 python3-botocore -y'
         //     }
         // }
-        stage('3. run ansible command') {
-            steps {
-                sh '''cd /etc/ansible
-ansible-playbook info.yaml'''
-            }
-        }
+//         stage('4. run ansible command') {
+//             steps {
+//                 sh '''cd /etc/ansible
+// ansible-playbook info.yaml'''
+//             }
+//         }
     }
     post 
     {
