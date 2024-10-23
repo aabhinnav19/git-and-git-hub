@@ -16,7 +16,7 @@ pipeline {
         }
         stage('2.copy command'){
             steps {
-                sh 'sudo cp /home/ubuntu/jenkins_folder/workspace/declarative_pipeline_2/info.yaml /etc/ansible'
+                sh 'sudo cp /home/ubuntu/jenkins_folder/workspace/declarative_pipeline/info.yaml /etc/ansible'
             }
         }
         // stage('3.installing boto3 and botocore'){
